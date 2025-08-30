@@ -11,23 +11,20 @@ nr_symbols = int(input("How many symbols would you like?\n"))
 nr_numbers = int(input("How many numbers would you like?\n"))
 
 
-pass_letters = ""
+password_list = []
+
 for n in range(1 , nr_letters + 1):
-    pass_letters += random.choice(letters)
+    password_list += random.choice(letters)
 
-pass_symb = ""
 for i in range(1, nr_symbols + 1):
-    pass_symb += random.choice(symbols)
+    password_list += random.choice(symbols)
     
-pass_num = ""
 for j in range(1, nr_numbers + 1):
-    pass_num += random.choice(numbers)
-    
+   password_list += random.choice(numbers)
 
+random.shuffle(password_list)
+password = ""
 
-password = pass_letters + pass_symb + pass_num
-new_password = ""
-for i in range(0, len(password) - 1):
-    new_password += random.choice(password)
-
-print(new_password)
+for k in password_list:
+    password += k
+print(f"Your password is:{password}")
